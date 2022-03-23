@@ -1,4 +1,18 @@
-let a = 5
-let b = 10
-console.log(`Fiftten is ${a+b} and
-not ${2*a +b}.`)
+
+
+var jsonData = '[{"rank":"9","content":"Alon","UID":"5"},{"rank":"6","content":"Tala","UID":"6"}]';
+
+$.ajax({
+    url: '/echo/json/',
+    type: 'POST',
+    data: {
+        json: jsonData
+    },
+    success: function (response) {
+        var trHTML = '';
+        $.each(response, function (i, item) {
+            trHTML += '<tr><td>' + item.rank + '</td><td>' + item.content + '</td><td>' + item.UID + '</td></tr>';
+        });
+        $('#table').append(trHTML);
+    }
+});
