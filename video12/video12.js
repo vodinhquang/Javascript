@@ -12,6 +12,7 @@ while(i<a.length){
 let j =0
  let flag = true;
  while(!flag){
+     
     console.log(j)
     j++
     if (j ===10){
