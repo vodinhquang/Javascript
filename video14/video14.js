@@ -1,1 +1,1 @@
-alert('vodinhquang')
+vodinhquang
