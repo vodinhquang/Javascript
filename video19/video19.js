@@ -12,4 +12,4 @@ let obj = {
         return this.name;
     }
 }
-console.log('my name is:',obj.getName())
+console.log('my name is:',obj.getName()) //funtion trong obj nen phari dung obj.funtion de goi
