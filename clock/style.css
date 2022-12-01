@@ -1,0 +1,10 @@
+#clock{
+    padding:  5px 25px 5px 25px;
+    margin : 10px 10px 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width : 200px;
+    text-align: center;
+    background-color:aquamarine;
+    display : flex;
+}

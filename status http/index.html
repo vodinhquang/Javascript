@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <script>
+    /*  const callback = (error, data) => {
+       if (data) {
+         console.log('test call back with data:', data);
+       }
+       if (error) {
+         console.log('test call back with error:', error);
+       }
+     } */
+    function getTodo(id) {
+      return new Promise(function (resolve, reject) {
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+          if (this.readyState === 4 && request.status === 200) {
+            const data = JSON.parse(request.responseText);
+            const string = JSON.stringify(data);
+            /* callback(undefined, data);
+            callback(undefined, string); */
+            resolve(data)
+          };
+          if (this.readyState === 4 && request.status !== 200) {
+            const error = request.status;
+            /* callback(error, undefined) */
+            reject('some thing is wrong')
+          }
+        };
+        request.open("GET", `https://jsonplaceholder.typicode.com/todos/${id}`, true);
+        request.send();
+      })
+
+    }
+    getTodo('asdad').then(data => { console.log('get date :', data) })
+    .catch(err => { console.log(err)})
+    /*const Promises = () => {
+      return new Promise((dung, sai) => {
+        /* dung({ name: 'Quang', age: 19 }) */
+    /* sai('Some thing is wrong')
+  })
+}
+Promises().then(data => { console.log(data) }).catch(err => { console.log(err) }) */
+
+  </script>
+
+</body>
+
+</html>
